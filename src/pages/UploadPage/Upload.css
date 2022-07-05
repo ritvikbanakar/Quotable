@@ -1,0 +1,127 @@
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+.upload-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 90vh;
+    min-height: 650px;
+
+}
+
+.upload-title {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+    background-color: white;
+    border-radius: 50px;
+    width: 500px;
+    text-align: left;
+    padding: 0px 130px;
+    height: 425px;
+    background-color: #65CCB8;
+    animation-name: popIn;
+    animation-duration: 0.4s;
+}
+
+@keyframes popIn {
+    0% {transform: scale(0)}
+    60% {transform: scale(1.2)}
+    100% {transform: scale(1)}
+}
+
+.upload-form input {
+    border: white;
+}
+
+.upload-form #text {
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+.upload-form input[type=file]::file-selector-button {
+    background-color: white;
+    border: None;
+    border-radius: 50px;
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+    font-weight: 700;
+    color: #65CCB8;
+    cursor: pointer;
+}
+
+.upload-form input[type=file] {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.upload-form input:focus {
+    outline: none !important;
+}
+
+.upload-form #submit {
+    margin-top: 10px;
+    background-color: white;
+    height: 50px;
+    border-radius: 50px;
+    color: #65CCB8;
+    font-size: 25px;
+    font-weight: bold;
+    transition: 0.4s;
+    width: 130px;
+}
+
+.upload-form #submit:hover {
+    transition: 0.4s;
+    transform: scale(1.2)
+}
+
+.button-wrap {
+    width: 100%;
+    text-align: center;
+}
+
+.result-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25vh;
+    gap: 0px;
+    background-color: white;
+    border-radius: 50px;
+    width: 500px;
+    text-align: left;
+    padding: 0px 10px;
+    height: 255px;
+    background-color: #65CCB8;
+}
+
+.result-box h1 {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 55px;
+    margin-top: 40px;
+}
+
+.animation {
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    animation-name: popIn;
+    animation-duration: 1s;
+}
