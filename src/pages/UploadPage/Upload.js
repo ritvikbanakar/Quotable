@@ -4,8 +4,19 @@ import { useForm } from "react-hook-form";
 import "./Upload.css"
 import Lottie from "lottie-react";
 import checkAnimation from "../../assets/white-check.json";
+import { useAuth } from "../../firebase";
 
 const Upload = () => {
+
+    const currentUser = useAuth();
+
+    const verifyUser = (user) => {
+        if (user === null) {
+            window.location = "/";
+        }
+    }
+
+    verifyUser(currentUser)
 
     const { register, handleSubmit } = useForm();
 
@@ -28,7 +39,7 @@ const Upload = () => {
 
     return (
         <div className="upload-container">
-            {!status ?
+            {!status && currentUser ?
                 <form className="upload-form" onSubmit={handleSubmit(onSubmit)}>
                     <h1 className="upload-title">Upload</h1>
                     <input id="text" {...register("firstName", { required: true })} 

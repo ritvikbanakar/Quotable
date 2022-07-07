@@ -125,3 +125,23 @@ body::-webkit-scrollbar {
     animation-name: popIn;
     animation-duration: 1s;
 }
+
+@media only screen and (max-width: 600px) {
+    .upload-form {
+        width: 300px;
+        padding: 0px 50px;
+        transition: 0.5s;
+    }
+
+    .upload-form input[type=file]::file-selector-button {
+        font-size: 13px;
+        transition: 0.5s;
+    }
+
+    .upload-form input[type=file] {
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        transition: 0.5s;
+    }
+}

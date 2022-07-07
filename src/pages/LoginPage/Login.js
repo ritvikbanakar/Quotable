@@ -1,31 +1,43 @@
-// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import './Login.css'
+import { logIn } from "../../firebase";
 
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
+    const [loading, setLoading] = useState(false);
+    // const [isSuccessful, setIsSuccessful] = useState(false);
 
-    const onSubmit = (data) => {
-        const isValid = () => {
-            <Link to="/login" />
+    const handleLogIn = async (data) => {
+        setLoading(true);
+        try {
+            await logIn(data.email, data.password);
+            // setIsSuccessful(true);
+            window.location = "/";
+        } catch (error) {
+            alert("Incorrect Credentials!")
         }
-        isValid();
-    }
+        setLoading(false);
+    } 
+    
 
     return (
         <div className="login-container">
             <div className="form-container">
-                <h1>Login</h1>
-                <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("login", { required: true })} 
-                    type="email" 
-                    placeholder="Email"/>
-                    <input {...register("password", { required: true })} 
-                    type="password" 
-                    placeholder="Password"/>
-                    <input type="submit" id="submit" />
+                <form className="login-form" onSubmit={handleSubmit(handleLogIn)}>
+                    <h1 className="login-title">Login</h1>
+                    <input id="text" {...register("email", { required: true })} 
+                        type="email" 
+                        placeholder="Email"/>
+                    <br/>
+                    <input id="text" {...register("password", { required: true })} 
+                        type="password" 
+                        placeholder="Password"/>
+                    <br/>
+                    <div className="button-wrap">
+                        <input disabled={loading} type="submit" id="submit" />
+                    </div>
                 </form>
             </div>
         </div>
