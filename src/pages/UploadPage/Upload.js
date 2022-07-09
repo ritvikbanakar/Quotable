@@ -5,6 +5,14 @@ import "./Upload.css"
 import Lottie from "lottie-react";
 import checkAnimation from "../../assets/white-check.json";
 import { useAuth } from "../../firebase";
+import { getDatabase, ref, set } from "firebase/database";
+
+function writeQuotes(userId, book, highlight, num) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId + '/' + book + '/' + num.toString()), {
+    highlight
+  });
+}
 
 const Upload = () => {
 
@@ -31,8 +39,16 @@ const Upload = () => {
     const handleFile = (file) => {
         const reader = new FileReader();
         reader.onload = (file) => {
-            let arr = file.target.result.split(/\r?\n/)
-            console.log(arr)
+            let lines = file.target.result.split(/\r?\n/)
+            let counter = 0
+            for (let i = 0; i < lines.length - 1; i+= 5) {
+                // Splitting Book Title and Author
+                let split = lines[i].split("(");
+                let author = split[1].replace(")", '')
+                let book = split[0].trim()
+                let highlight = lines[i+3]
+                writeQuotes(currentUser?.email.split("@")[0], book, highlight, counter++)
+            }
         }
         reader.readAsText(file[0])
     }
