@@ -1,0 +1,50 @@
+.quote-container{
+    background: white;
+    height: 260px;
+    width: 50%;
+    min-width: 700px;
+    border-radius: 20px;
+    padding: 15px 25px 25px 25px;
+    box-shadow: 5px 5px 15px gray;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.quote {
+    font-size: 18px;
+    overflow: scroll;
+    height: 140px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 0px;
+    /* align-items: center;
+    justify-content: center;
+    align-content: center;
+    vertical-align: center; */
+}
+
+.quote::-webkit-scrollbar {
+    display: none;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.book-info p {
+    margin: 0px;
+    font-weight: bold;
+    text-align: right;
+    color: #404040;
+}
+
+.book-author {
+    font-style: italic;
+    font-size: 15px;
+}
