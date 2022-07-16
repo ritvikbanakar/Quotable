@@ -16,7 +16,6 @@ const Upload = () => {
         });
     }
 
-
     const currentUser = useAuth();
 
     const verifyUser = (user) => {
