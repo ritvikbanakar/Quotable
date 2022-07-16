@@ -1,6 +1,11 @@
 import "./QuoteBox.css"
 
-const QuoteBox = () => {
+const QuoteBox = (props) => {
+
+    const highlight = props
+
+   
+
     return (
         <>
             <div className="quote-container"> 
