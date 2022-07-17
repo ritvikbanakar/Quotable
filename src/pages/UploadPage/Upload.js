@@ -51,7 +51,6 @@ const Upload = () => {
         const reader = new FileReader();
         reader.onload = (file) => {
             let lines = file.target.result.split(/\r?\n/)
-            let counter = 0
             for (let i = 0; i < lines.length - 1; i += 5) {
                 // Splitting Book Title and Author
                 let split = lines[i].split("(");
