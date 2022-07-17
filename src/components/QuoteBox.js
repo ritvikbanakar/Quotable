@@ -11,7 +11,7 @@ const QuoteBox = (props) => {
                 <p className="quote">{highlight}</p>
                 <div className="book-info">
                     <p className="book-title">Title: {title}</p>
-                    {/* <p className="book-author">N/A</p> */}
+                    <p className="book-author">N/A</p>
                 </div>
             </div>
         </>

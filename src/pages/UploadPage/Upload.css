@@ -1,5 +1,6 @@
 body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none;
+    /* for Chrome, Safari, and Opera */
 }
 
 .upload-container {
@@ -8,6 +9,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     height: 90vh;
     min-height: 650px;
+    background-color: var(--light-blue);
 
 }
 
@@ -30,15 +32,23 @@ body::-webkit-scrollbar {
     text-align: left;
     padding: 0px 130px;
     height: 425px;
-    background-color: #65CCB8;
+    background-color: var(--blue);
     animation-name: popIn;
     animation-duration: 0.4s;
 }
 
 @keyframes popIn {
-    0% {transform: scale(0)}
-    60% {transform: scale(1.2)}
-    100% {transform: scale(1)}
+    0% {
+        transform: scale(0)
+    }
+
+    60% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
 }
 
 .upload-form input {
@@ -59,7 +69,7 @@ body::-webkit-scrollbar {
     height: 30px;
     margin-right: 20px;
     font-weight: 700;
-    color: #65CCB8;
+    color: var(--blue);
     cursor: pointer;
 }
 
@@ -78,7 +88,7 @@ body::-webkit-scrollbar {
     background-color: white;
     height: 50px;
     border-radius: 50px;
-    color: #65CCB8;
+    color: var(--blue);
     font-size: 25px;
     font-weight: bold;
     transition: 0.4s;
@@ -100,13 +110,12 @@ body::-webkit-scrollbar {
     flex-direction: column;
     margin-top: 25vh;
     gap: 0px;
-    background-color: white;
     border-radius: 50px;
     width: 500px;
     text-align: left;
     padding: 0px 10px;
     height: 255px;
-    background-color: #65CCB8;
+    background-color: var(--blue);
 }
 
 .result-box h1 {

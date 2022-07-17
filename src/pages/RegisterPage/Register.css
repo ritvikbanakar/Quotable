@@ -30,7 +30,7 @@ body::-webkit-scrollbar {
     text-align: left;
     padding: 0px 130px;
     height: 405px;
-    background-color: #65CCB8;
+    background-color: var(--blue);
     animation-name: popIn;
     animation-duration: 0.4s;
 }
@@ -59,7 +59,7 @@ body::-webkit-scrollbar {
     height: 30px;
     margin-right: 20px;
     font-weight: 700;
-    color: #65CCB8;
+    color: var(--blue);
     cursor: pointer;
 }
 
@@ -87,7 +87,7 @@ body::-webkit-scrollbar {
     background-color: white;
     height: 50px;
     border-radius: 50px;
-    color: #65CCB8;
+    color: var(--blue);
     font-size: 25px;
     font-weight: bold;
     transition: 0.4s;
@@ -115,7 +115,7 @@ body::-webkit-scrollbar {
     text-align: left;
     padding: 0px 10px;
     height: 255px;
-    background-color: #65CCB8;
+    background-color: var(--blue);
 }
 
 .result-box h1 {
