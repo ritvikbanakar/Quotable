@@ -8,11 +8,22 @@ import { useAuth } from "../../firebase";
 import { getDatabase, ref, set } from "firebase/database";
 
 const Upload = () => {
+    function hashCode(s) {
+        let h=0;
+        for(let i = 0; i < s.length; i++)
+            h = Math.imul(31, h) + s.charCodeAt(i) | 0;
 
-    const writeQuotes = (userId, book, highlight, num) => {
+        return h;
+    }
+
+    const writeQuotes = (userId, book, highlight, author) => {
         const db = getDatabase();
-        set(ref(db, 'users/' + userId + '/' + book + '/' + num.toString()), {
-            highlight
+        let hid = hashCode(highlight)
+        set(ref(db, 'users/' + userId + '/highlights/' + hid), {
+            "author": author,
+            "book": book,
+            "content": highlight,
+            "uid": userId,
         });
     }
 
@@ -47,7 +58,7 @@ const Upload = () => {
                 let author = split[1].replace(")", '')
                 let book = split[0].trim()
                 let highlight = lines[i + 3]
-                writeQuotes(currentUser?.email.split("@")[0], book, highlight, counter++)
+                writeQuotes(currentUser?.email.split("@")[0], book, highlight, author)
             }
         }
         reader.readAsText(file[0])
