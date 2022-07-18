@@ -10,5 +10,29 @@
     gap: 25px;
     align-items: center;
     justify-content: center;
-    padding-top: 75px;
+    padding-top: 30px;
+}
+
+.toggle-visibility-filter {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    padding-top: 50px;
+    padding-left: 65vw;
+}
+
+.private-toggle-label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.public-toggle-label {
+    font-weight: bold;
+    font-size: 21px;
+    padding-left: 8px;
+}
+
+.form-switch .form-check-input {
+    width: 50px !important;
+    height: 25px !important;
 }

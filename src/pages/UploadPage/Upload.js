@@ -8,11 +8,22 @@ import { useAuth } from "../../firebase";
 import { getDatabase, ref, set } from "firebase/database";
 
 const Upload = () => {
+    const hashCode = (s) => {
+        let h = 0;
+        for (let i = 0; i < s.length; i++)
+            h = Math.imul(31, h) + s.charCodeAt(i) | 0;
+        return h;
+    }
 
-    const writeQuotes = (userId, book, highlight, num) => {
+    const writeQuotes = (userId, username, book, highlight, author) => {
         const db = getDatabase();
-        set(ref(db, 'users/' + userId + '/' + book + '/' + num.toString()), {
-            highlight
+        let hid = hashCode(highlight);
+        set(ref(db, 'users/' + username + '/highlights/' + hid), {
+            "author": author,
+            "book": book,
+            "content": highlight,
+            "uid": userId,
+            "username": username
         });
     }
 
@@ -40,14 +51,13 @@ const Upload = () => {
         const reader = new FileReader();
         reader.onload = (file) => {
             let lines = file.target.result.split(/\r?\n/)
-            let counter = 0
             for (let i = 0; i < lines.length - 1; i += 5) {
                 // Splitting Book Title and Author
                 let split = lines[i].split("(");
                 let author = split[1].replace(")", '')
                 let book = split[0].trim()
                 let highlight = lines[i + 3]
-                writeQuotes(currentUser?.email.split("@")[0], book, highlight, counter++)
+                writeQuotes(currentUser?.uid, currentUser?.email.split("@")[0], book, highlight, author)
             }
         }
         reader.readAsText(file[0])
