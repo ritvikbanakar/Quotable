@@ -8,7 +8,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     height: 90vh;
     min-height: 650px;
-
+    background-color: var(--light-blue);
 }
 
 .login-title {

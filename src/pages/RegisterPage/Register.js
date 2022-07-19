@@ -25,6 +25,7 @@ const Register = () => {
             }
         } catch (error) {
             alert("Incorrect Credentials!")
+            console.log(error)
         }
         setLoading(false);
     }

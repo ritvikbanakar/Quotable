@@ -17,13 +17,14 @@ const Upload = () => {
 
     const writeQuotes = (userId, username, book, highlight, author) => {
         const db = getDatabase();
-        let hid = hashCode(highlight);
+        let hid = hashCode(highlight).toString();
         set(ref(db, 'users/' + username + '/highlights/' + hid), {
             "author": author,
             "book": book,
             "content": highlight,
             "uid": userId,
-            "username": username
+            "username": username,
+            "hid": hid,
         });
     }
 
